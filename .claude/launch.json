@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mediawind-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/olufemiolatunde/Library/Mobile Documents/com~apple~CloudDocs/Desktop/Work Files/Femi Work/MEDIAWIND/mediawind-website",
+      "port": 3000
+    }
+  ]
+}

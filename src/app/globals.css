@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1d1e80;
+  --color-indigo-brand: #3c3d96;
+  --color-blue-mid: #5488c7;
+  --color-sky: #68b8f3;
+  --color-sky-light: #98cbf1;
+  --color-pale: #d9edfc;
+  --color-ink: #181818;
+  --color-accent: #0092ff;
+  --color-border-blue: #5a96df;
+  --font-sans: var(--font-poppins), sans-serif;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+.wave-bg {
+  background-image: url("/images/bg-wave.png");
+  background-size: 600px;
+  background-repeat: repeat;
+}
+
+/* Soft white veil over the wave pattern so text stays readable */
+.wave-veil {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.82),
+    rgba(255, 255, 255, 0.94)
+  );
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
