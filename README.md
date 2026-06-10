@@ -45,6 +45,12 @@ Add an entry to `src/data/posts.ts` (slug, title, author, image in `public/image
 
 ## Brand
 
-- Font: Poppins
-- Colors: navy `#1D1E80`, indigo `#3C3D96`, mid blue `#5488C7`, sky `#68B8F3` / `#98CBF1`, pale `#D9EDFC`, ink `#181818`
+Follows the Media Wind Brand Guide:
+
+- Font: Rajdhani (the brand's sole typeface; it has no italic — emphasis uses color instead)
+- Primary colors: white, sky `#98CBF1`, blue `#5488C7`, indigo `#3C3D96`
+- Secondary: `#F1F1F1`, black, gray `#AFACAC`, deep navy `#031750` (the recommended background for the primary logo — used for the hero, clients strip, CTA bands, and footer)
+- Logo assets extracted from the brand guide: `public/images/logo.png` (full lockup), `public/images/logo-mark.png` (wave mark alone — also the favicon)
 - Tokens are defined in `src/app/globals.css` under `@theme`
+
+Photography spots use the `ImagePlaceholder` component, with a caption describing the shot per the guide's photography direction ("people at ease with technology… happy smiles… hint of brand colors"). Replace each with a real image in `public/images` when ready.

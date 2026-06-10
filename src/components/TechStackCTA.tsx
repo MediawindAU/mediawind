@@ -15,7 +15,7 @@ export default function TechStackCTA({
         </p>
         <Link
           href="/contact"
-          className="mt-8 inline-block rounded-full bg-accent px-8 py-3.5 font-medium text-white border border-indigo-brand hover:bg-sky transition-colors"
+          className="mt-8 inline-block rounded-full bg-sky-light px-8 py-3.5 font-semibold text-navy hover:bg-white transition-colors"
         >
           Explore Our Tech Stack
         </Link>

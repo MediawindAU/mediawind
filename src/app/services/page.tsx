@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import ServiceCards from "@/components/ServiceCards";
 import FeatureGrid from "@/components/FeatureGrid";
 import TechStackCTA from "@/components/TechStackCTA";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -56,6 +57,11 @@ export default function ServicesPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ImagePlaceholder
+            label="Client workshop in progress — smiling team sketching a product idea on a whiteboard, brand blues in the room"
+            aspect="aspect-[21/9]"
+            className="mb-16"
+          />
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             How we help
           </h2>
@@ -65,7 +71,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Check our services

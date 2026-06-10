@@ -165,7 +165,7 @@ export default function BrandingPage() {
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             More Than Just a Logo
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+          <p className="mx-auto mt-4 max-w-3xl text-center text-black/65">
             Your brand is the sum of every interaction someone has with your
             business. We help you craft a cohesive brand identity that tells
             your story authentically and resonates with your target audience
@@ -177,7 +177,7 @@ export default function BrandingPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Our Branding Process
@@ -199,7 +199,7 @@ export default function BrandingPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Why Brand Identity Matters
@@ -216,10 +216,10 @@ export default function BrandingPage() {
             {focusAreas.map((f) => (
               <div
                 key={f.title}
-                className="rounded-2xl border border-gray-100 bg-white p-10 shadow-sm"
+                className="rounded-2xl border border-pale bg-white p-10 shadow-sm"
               >
                 <h2 className="text-2xl font-bold text-navy">{f.title}</h2>
-                <p className="mt-4 leading-relaxed text-gray-600">
+                <p className="mt-4 leading-relaxed text-black/65">
                   {f.description}
                 </p>
               </div>

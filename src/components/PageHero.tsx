@@ -20,7 +20,7 @@ export default function PageHero({
             {title}
           </h1>
           {children && (
-            <div className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+            <div className="mx-auto mt-6 max-w-2xl text-lg text-black/65">
               {children}
             </div>
           )}

@@ -20,7 +20,7 @@ export default function FeatureGrid({
       {features.map((f, i) => (
         <div
           key={f.title}
-          className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm"
+          className="rounded-2xl border border-pale bg-white p-8 shadow-sm"
         >
           {numbered && (
             <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-pale font-bold text-navy">
@@ -28,7 +28,7 @@ export default function FeatureGrid({
             </div>
           )}
           <h3 className="text-lg font-semibold text-navy">{f.title}</h3>
-          <p className="mt-3 text-gray-600">{f.description}</p>
+          <p className="mt-3 text-black/65">{f.description}</p>
         </div>
       ))}
     </div>

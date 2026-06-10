@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "About",
@@ -43,15 +44,20 @@ export default function AboutPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ImagePlaceholder
+            label="The Mediawind team collaborating — cheerful, at ease with technology, business environment with a hint of the brand blues"
+            aspect="aspect-[21/9]"
+            className="mb-16"
+          />
           <div className="grid gap-12 lg:grid-cols-2">
-            <div className="rounded-2xl bg-pale/40 p-10">
+            <div className="rounded-2xl bg-pale/60 p-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-blue-mid">
                 Our Mission
               </p>
               <h2 className="mt-3 text-2xl font-bold text-navy sm:text-3xl">
                 Build products users need
               </h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-black/65">
                 We exist to bridge the gap between ambitious ideas and
                 successful digital products. Too many great concepts never see
                 the light of day because of technical complexity, resource
@@ -59,14 +65,14 @@ export default function AboutPage() {
                 narrative.
               </p>
             </div>
-            <div className="rounded-2xl bg-pale/40 p-10">
+            <div className="rounded-2xl bg-pale/60 p-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-blue-mid">
                 Our Approach
               </p>
               <h2 className="mt-3 text-2xl font-bold text-navy sm:text-3xl">
                 Digital experience with strategic thinking
               </h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-black/65">
                 We don&apos;t just build features—we craft experiences. Our
                 approach combines strategic thinking, creative design, and
                 technical excellence to create products that users love and
@@ -87,7 +93,7 @@ export default function AboutPage() {
             {team.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm"
+                className="rounded-2xl border border-pale bg-white p-8 text-center shadow-sm"
               >
                 <Image
                   src={member.image}
@@ -99,7 +105,7 @@ export default function AboutPage() {
                 <h3 className="mt-6 text-xl font-semibold text-navy">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-gray-600">{member.role}</p>
+                <p className="mt-1 text-black/65">{member.role}</p>
                 <div className="mt-4 flex justify-center gap-4">
                   {member.links.map((l) => (
                     <a

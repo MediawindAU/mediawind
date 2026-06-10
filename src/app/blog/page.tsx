@@ -27,7 +27,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-pale bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <Image
                   src={post.image}
@@ -40,7 +40,7 @@ export default function BlogPage() {
                   <h2 className="text-lg font-semibold text-navy group-hover:text-blue-mid transition-colors">
                     {post.title}
                   </h2>
-                  <p className="mt-3 line-clamp-3 text-gray-600">
+                  <p className="mt-3 line-clamp-3 text-black/65">
                     {post.excerpt}
                   </p>
                   <p className="mt-4 font-medium text-blue-mid">Read more →</p>

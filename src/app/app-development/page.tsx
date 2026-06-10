@@ -119,7 +119,7 @@ export default function AppDevelopmentPage() {
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Our Design Thinking Approach
           </h2>
-          <p className="mt-4 text-center text-lg text-gray-600">
+          <p className="mt-4 text-center text-lg text-black/65">
             Five Phases, Infinite Possibilities
           </p>
           <div className="mt-12">
@@ -128,7 +128,7 @@ export default function AppDevelopmentPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Comprehensive Services

@@ -108,7 +108,7 @@ export default function WebDevelopmentPage() {
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Modern Web Solutions for Modern Businesses
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+          <p className="mx-auto mt-4 max-w-3xl text-center text-black/65">
             The web is your storefront, your sales team, and your brand
             ambassador all rolled into one. We build web experiences that work
             flawlessly across all devices and browsers while delivering the
@@ -120,7 +120,7 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Our Process

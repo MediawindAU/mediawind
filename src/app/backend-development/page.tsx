@@ -151,7 +151,7 @@ export default function BackendDevelopmentPage() {
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             The Engine Behind Great Applications
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-gray-600">
+          <p className="mx-auto mt-4 max-w-3xl text-center text-black/65">
             Your users never see the backend, but they definitely feel it. Slow
             responses, security vulnerabilities, and system crashes all stem
             from poor backend architecture. We build server-side solutions that
@@ -164,7 +164,7 @@ export default function BackendDevelopmentPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Our Tech Stack
@@ -186,7 +186,7 @@ export default function BackendDevelopmentPage() {
         </div>
       </section>
 
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Built for the Long Run

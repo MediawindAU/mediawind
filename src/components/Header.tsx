@@ -21,26 +21,26 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-pale">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
             <Image
-              src="/images/logo.webp"
-              alt="Mediawind"
-              width={180}
-              height={48}
-              className="h-10 w-auto"
+              src="/images/logo.png"
+              alt="Media Wind"
+              width={158}
+              height={72}
+              className="h-12 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 text-lg">
             <div className="relative group">
               <Link
                 href="/services"
-                className="flex items-center gap-1 text-ink hover:text-navy font-medium transition-colors"
+                className="flex items-center gap-1 font-semibold text-navy hover:text-blue-mid transition-colors"
               >
                 Services
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -48,12 +48,12 @@ export default function Header() {
                 </svg>
               </Link>
               <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <div className="w-48 rounded-xl bg-white shadow-lg ring-1 ring-gray-100 py-2">
+                <div className="w-48 rounded-xl bg-white shadow-lg ring-1 ring-pale py-2">
                   {serviceLinks.map((l) => (
                     <Link
                       key={l.href}
                       href={l.href}
-                      className="block px-4 py-2.5 text-sm text-ink hover:bg-pale hover:text-navy transition-colors"
+                      className="block px-4 py-2.5 font-medium text-navy hover:bg-pale hover:text-blue-mid transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -65,14 +65,14 @@ export default function Header() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-ink hover:text-navy font-medium transition-colors"
+                className="font-semibold text-navy hover:text-blue-mid transition-colors"
               >
                 {l.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="rounded-full bg-indigo-brand px-6 py-2.5 font-medium text-white border border-border-blue border-r-4 border-b-[3px] hover:bg-navy transition-colors"
+              className="rounded-full bg-indigo-brand px-7 py-2.5 font-semibold text-white hover:bg-blue-mid transition-colors"
             >
               Contact
             </Link>
@@ -81,7 +81,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-ink"
+            className="md:hidden p-2 text-navy"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -99,10 +99,10 @@ export default function Header() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="md:hidden border-t border-gray-100 bg-white px-4 pb-6 pt-2">
+        <nav className="md:hidden border-t border-pale bg-white px-4 pb-6 pt-2 text-lg">
           <button
             type="button"
-            className="flex w-full items-center justify-between py-3 font-medium text-ink"
+            className="flex w-full items-center justify-between py-3 font-semibold text-navy"
             onClick={() => setServicesOpen((v) => !v)}
             aria-expanded={servicesOpen}
           >
@@ -120,7 +120,7 @@ export default function Header() {
             <div className="pl-4">
               <Link
                 href="/services"
-                className="block py-2 text-sm text-ink"
+                className="block py-2 font-medium text-navy"
                 onClick={() => setMobileOpen(false)}
               >
                 All Services
@@ -129,7 +129,7 @@ export default function Header() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="block py-2 text-sm text-ink"
+                  className="block py-2 font-medium text-navy"
                   onClick={() => setMobileOpen(false)}
                 >
                   {l.label}
@@ -141,7 +141,7 @@ export default function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="block py-3 font-medium text-ink"
+              className="block py-3 font-semibold text-navy"
               onClick={() => setMobileOpen(false)}
             >
               {l.label}
@@ -149,7 +149,7 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="mt-2 inline-block rounded-full bg-indigo-brand px-6 py-2.5 font-medium text-white"
+            className="mt-2 inline-block rounded-full bg-indigo-brand px-7 py-2.5 font-semibold text-white"
             onClick={() => setMobileOpen(false)}
           >
             Contact

@@ -31,7 +31,7 @@ export default function ServiceCards() {
         <Link
           key={s.title}
           href={s.href}
-          className="group rounded-2xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+          className="group rounded-2xl border border-pale bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
         >
           <div className="mx-auto h-24 w-24">
             <Image

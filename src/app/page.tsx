@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Counter from "@/components/Counter";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ServiceCards from "@/components/ServiceCards";
 import ContactSection from "@/components/ContactSection";
 
@@ -89,42 +90,53 @@ const blogTeasers = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="wave-bg">
-        <div className="wave-veil">
-          <div className="mx-auto max-w-5xl px-4 py-24 text-center sm:px-6 sm:py-32 lg:px-8 fade-up">
-            <h1 className="text-4xl font-bold leading-tight text-navy sm:text-6xl">
-              We help <em className="text-blue-mid">startups</em> turn ideas
-              into scalable <em className="text-blue-mid">digital products</em>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
-              From MVPs to full-scale apps, Mediawind is your partner in
-              building purposeful, user-friendly, and reliable digital
-              products.
-            </p>
-            <Link
-              href="/services"
-              className="mt-10 inline-block rounded-full bg-indigo-brand px-8 py-4 text-lg font-medium text-white border border-border-blue border-r-4 border-b-[3px] hover:bg-navy transition-colors"
-            >
-              Discover What We Do
-            </Link>
+      {/* Hero — deep navy, the brand's recommended logo background */}
+      <section className="bg-navy text-white">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <div className="grid items-center gap-12 lg:grid-cols-2 fade-up">
+            <div>
+              <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
+                We help <em className="text-sky-light">startups</em> turn ideas
+                into scalable{" "}
+                <em className="text-sky-light">digital products</em>
+              </h1>
+              <p className="mt-6 max-w-xl text-lg font-medium text-white/80">
+                From MVPs to full-scale apps, Mediawind is your partner in
+                building purposeful, user-friendly, and reliable digital
+                products.
+              </p>
+              <Link
+                href="/services"
+                className="mt-10 inline-block rounded-full bg-sky-light px-8 py-4 text-lg font-semibold text-navy hover:bg-white transition-colors"
+              >
+                Discover What We Do
+              </Link>
 
-            <div className="mx-auto mt-16 grid max-w-xl grid-cols-2 gap-8">
-              <div>
-                <p className="text-4xl font-bold text-navy sm:text-5xl">
-                  <Counter to={5} />
-                </p>
-                <p className="mt-2 text-gray-600">Products Launched</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-navy sm:text-5xl">
-                  <Counter to={6} suffix="+yrs" />
-                </p>
-                <p className="mt-2 text-gray-600">
-                  Doing Business In Australia
-                </p>
+              <div className="mt-14 grid max-w-md grid-cols-2 gap-8">
+                <div>
+                  <p className="text-4xl font-bold text-sky-light sm:text-5xl">
+                    <Counter to={5} />
+                  </p>
+                  <p className="mt-2 font-medium text-white/80">
+                    Products Launched
+                  </p>
+                </div>
+                <div>
+                  <p className="text-4xl font-bold text-sky-light sm:text-5xl">
+                    <Counter to={6} suffix="+yrs" />
+                  </p>
+                  <p className="mt-2 font-medium text-white/80">
+                    Doing Business In Australia
+                  </p>
+                </div>
               </div>
             </div>
+
+            <ImagePlaceholder
+              label="Founder & client at ease with technology — happy, enthusiastic, business setting, with a hint of the brand blues in the environment"
+              aspect="aspect-[4/3]"
+              className="bg-white/95"
+            />
           </div>
         </div>
       </section>
@@ -155,7 +167,7 @@ export default function Home() {
                 alt={c.alt}
                 width={140}
                 height={56}
-                className="h-12 w-auto object-contain opacity-90"
+                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
               />
             ))}
           </div>
@@ -180,14 +192,14 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-navy sm:text-3xl">
                 Bawo Africa
               </h3>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-lg text-black/65">
                 A platform dedicated to teach all African Languages in
                 bite-sized learning format. The platform ensures users attain
                 culture appreciation.
               </p>
               <Link
                 href="/contact"
-                className="mt-8 inline-block rounded-full bg-indigo-brand px-7 py-3 font-medium text-white border border-border-blue border-r-4 border-b-[3px] hover:bg-navy transition-colors"
+                className="mt-8 inline-block rounded-full bg-indigo-brand px-7 py-3 font-medium text-white hover:bg-blue-mid transition-colors"
               >
                 Learn More
               </Link>
@@ -197,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* Why Mediawind */}
-      <section className="bg-pale/40 py-20">
+      <section className="bg-pale/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Why Mediawind
@@ -221,7 +233,7 @@ export default function Home() {
                 <h3 className="mt-6 text-lg font-semibold text-navy">
                   {w.title}
                 </h3>
-                <p className="mt-3 text-gray-600">{w.description}</p>
+                <p className="mt-3 text-black/65">{w.description}</p>
               </div>
             ))}
           </div>
@@ -238,7 +250,7 @@ export default function Home() {
             {steps.map((step, i) => (
               <div
                 key={step}
-                className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm"
+                className="rounded-2xl border border-pale bg-white p-6 text-center shadow-sm"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-navy text-lg font-bold text-white">
                   {i + 1}
@@ -259,7 +271,7 @@ export default function Home() {
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             Startup Journey Insights
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-black/65">
             Follow our blog for expert insights on digital product development,
             startup strategies, and industry trends that matter to ambitious
             founders.
@@ -269,7 +281,7 @@ export default function Home() {
               <Link
                 key={b.title}
                 href="/blog"
-                className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-pale bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
               >
                 <Image
                   src={b.image}
@@ -282,7 +294,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-navy group-hover:text-blue-mid transition-colors">
                     {b.title}
                   </h3>
-                  <p className="mt-2 text-gray-600">
+                  <p className="mt-2 text-black/65">
                     Building your first product might seem daunting.
                   </p>
                 </div>

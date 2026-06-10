@@ -38,8 +38,8 @@ export default async function BlogPostPage({
         <h1 className="mt-6 text-3xl font-bold text-navy sm:text-4xl">
           {post.title}
         </h1>
-        <p className="mt-4 text-gray-500">By {post.author}</p>
-        <p className="mt-6 text-lg text-gray-600">
+        <p className="mt-4 text-black/55">By {post.author}</p>
+        <p className="mt-6 text-lg text-black/65">
           <span className="font-semibold text-ink">Summary:</span>{" "}
           {post.excerpt}
         </p>
@@ -60,14 +60,14 @@ export default async function BlogPostPage({
                 </h2>
               )}
               {section.paragraphs?.map((p) => (
-                <p key={p.slice(0, 40)} className="mt-4 leading-relaxed text-gray-700">
+                <p key={p.slice(0, 40)} className="mt-4 leading-relaxed text-black/75">
                   {p}
                 </p>
               ))}
               {section.list && (
                 <ul className="mt-4 space-y-3">
                   {section.list.map((item) => (
-                    <li key={item.term} className="leading-relaxed text-gray-700">
+                    <li key={item.term} className="leading-relaxed text-black/75">
                       <span className="font-semibold text-ink">
                         {item.term}:
                       </span>{" "}

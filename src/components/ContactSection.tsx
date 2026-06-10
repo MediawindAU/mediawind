@@ -27,15 +27,15 @@ export default function ContactSection({ id = "contact" }: { id?: string }) {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-ink placeholder-gray-400 focus:border-blue-mid focus:outline-none focus:ring-2 focus:ring-sky-light/50";
+    "w-full rounded-xl border border-gray-brand/40 bg-white px-4 py-3 text-ink placeholder-gray-brand focus:border-blue-mid focus:outline-none focus:ring-2 focus:ring-sky-light/50";
 
   return (
-    <section id={id} className="bg-pale/40 py-20">
+    <section id={id} className="bg-pale/60 py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
           Kickstart your project
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-gray-600">
+        <p className="mx-auto mt-4 max-w-xl text-center text-black/65">
           Fill out the form below and we&apos;ll contact you as soon as
           possible to discuss how we can bring your digital vision to life.
         </p>
@@ -80,7 +80,7 @@ export default function ContactSection({ id = "contact" }: { id?: string }) {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="rounded-full bg-indigo-brand px-10 py-3.5 font-medium text-white border border-border-blue border-r-4 border-b-[3px] hover:bg-navy transition-colors disabled:opacity-60"
+              className="rounded-full bg-indigo-brand px-10 py-3.5 font-medium text-white hover:bg-blue-mid transition-colors disabled:opacity-60"
             >
               {status === "sending" ? "Sending…" : "Send"}
             </button>

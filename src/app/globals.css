@@ -1,22 +1,32 @@
 @import "tailwindcss";
 
+/*
+ * Media Wind brand tokens (Brand Guide):
+ * Primary  — #FFFFFF, #98CBF1 (sky), #5488C7 (blue), #3C3D96 (indigo)
+ * Secondary — #F1F1F1, #000000, #AFACAC, #031750 (deep navy — the
+ * recommended background on which the primary logo sits)
+ * Typeface — Rajdhani
+ */
 @theme {
-  --color-navy: #1d1e80;
+  --color-navy: #031750;
   --color-indigo-brand: #3c3d96;
   --color-blue-mid: #5488c7;
-  --color-sky: #68b8f3;
   --color-sky-light: #98cbf1;
-  --color-pale: #d9edfc;
-  --color-ink: #181818;
-  --color-accent: #0092ff;
-  --color-border-blue: #5a96df;
-  --font-sans: var(--font-poppins), sans-serif;
+  --color-pale: #f1f1f1;
+  --color-gray-brand: #afacac;
+  --color-ink: #000000;
+  --font-sans: var(--font-rajdhani), sans-serif;
 }
 
 body {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-rajdhani), sans-serif;
   color: var(--color-ink);
   background: #ffffff;
+}
+
+/* Rajdhani has no italic — emphasis is expressed with brand color instead */
+em {
+  font-style: normal;
 }
 
 .wave-bg {
@@ -28,9 +38,18 @@ body {
 /* Soft white veil over the wave pattern so text stays readable */
 .wave-veil {
   background: linear-gradient(
-    rgba(255, 255, 255, 0.82),
-    rgba(255, 255, 255, 0.94)
+    rgba(255, 255, 255, 0.86),
+    rgba(255, 255, 255, 0.95)
   );
+}
+
+/* Subtle brand pattern for deep navy sections */
+.wave-bg-dark {
+  background-color: var(--color-navy);
+  background-image: url("/images/bg-wave.png");
+  background-size: 700px;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
 }
 
 @keyframes fade-up {
