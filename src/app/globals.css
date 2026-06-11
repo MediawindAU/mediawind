@@ -1,68 +1,172 @@
 @import "tailwindcss";
 
 /*
- * Media Wind brand tokens (Brand Guide):
- * Primary  — #FFFFFF, #98CBF1 (sky), #5488C7 (blue), #3C3D96 (indigo)
- * Secondary — #F1F1F1, #000000, #AFACAC, #031750 (deep navy — the
- * recommended background on which the primary logo sits)
- * Typeface — Rajdhani
+ * Media Wind — design system
+ * Brand palette (Brand Guide): white, #98CBF1 (sky), #5488C7 (blue),
+ * #3C3D96 (indigo), #F1F1F1, #000, #AFACAC, #031750 (deep navy — the
+ * recommended background for the primary logo).
+ * Type: Space Grotesk (display) + Inter (body), tuned for the brand's
+ * "Refreshing & Peaceful" tone.
  */
 @theme {
   --color-navy: #031750;
+  --color-navy-deep: #020e33;
   --color-indigo-brand: #3c3d96;
   --color-blue-mid: #5488c7;
   --color-sky-light: #98cbf1;
   --color-pale: #f1f1f1;
   --color-gray-brand: #afacac;
-  --color-ink: #000000;
-  --font-sans: var(--font-rajdhani), sans-serif;
+  --color-ink: #0a0a14;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
-  font-family: var(--font-rajdhani), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   color: var(--color-ink);
   background: #ffffff;
 }
 
-/* Rajdhani has no italic — emphasis is expressed with brand color instead */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
 em {
   font-style: normal;
 }
 
+::selection {
+  background: var(--color-sky-light);
+  color: var(--color-navy);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ——— Brand wave pattern (light sections) ——— */
 .wave-bg {
   background-image: url("/images/bg-wave.png");
   background-size: 600px;
   background-repeat: repeat;
 }
 
-/* Soft white veil over the wave pattern so text stays readable */
 .wave-veil {
   background: linear-gradient(
-    rgba(255, 255, 255, 0.86),
-    rgba(255, 255, 255, 0.95)
+    rgba(255, 255, 255, 0.88),
+    rgba(255, 255, 255, 0.97)
   );
 }
 
-/* Subtle brand pattern for deep navy sections */
-.wave-bg-dark {
+/* ——— Aurora: calm drifting brand-blue glow on deep navy ———
+   Note: callers must set their own position (relative/fixed). */
+.aurora {
+  isolation: isolate;
   background-color: var(--color-navy);
-  background-image: url("/images/bg-wave.png");
-  background-size: 700px;
-  background-repeat: repeat;
-  background-blend-mode: soft-light;
+  overflow: hidden;
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+.aurora::before,
+.aurora::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: -1;
+  background:
+    radial-gradient(38% 42% at 25% 30%, rgba(84, 136, 199, 0.55), transparent 70%),
+    radial-gradient(34% 38% at 75% 22%, rgba(60, 61, 150, 0.6), transparent 70%),
+    radial-gradient(30% 36% at 60% 75%, rgba(152, 203, 241, 0.28), transparent 70%);
+  animation: aurora-drift 26s var(--ease-calm) infinite alternate;
+}
+
+.aurora::after {
+  background:
+    radial-gradient(30% 34% at 80% 70%, rgba(84, 136, 199, 0.4), transparent 70%),
+    radial-gradient(26% 30% at 15% 80%, rgba(152, 203, 241, 0.2), transparent 70%);
+  animation-duration: 34s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-4%, -3%, 0) rotate(0.001deg) scale(1);
   }
+  50% {
+    transform: translate3d(3%, 4%, 0) rotate(0.001deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-2%, 2%, 0) rotate(0.001deg) scale(1.02);
+  }
+}
+
+/* Fine film grain over dark sections for depth */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ——— Logo marquee ——— */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%);
   }
 }
 
-.fade-up {
-  animation: fade-up 0.7s ease-out both;
+/* ——— Link underline sweep ——— */
+.link-sweep {
+  position: relative;
+}
+
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-calm);
+}
+
+.link-sweep:hover::after,
+.link-sweep[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ——— Big outlined wordmark (footer) ——— */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(152, 203, 241, 0.35);
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .aurora::before,
+  .aurora::after,
+  .marquee {
+    animation: none;
+  }
 }

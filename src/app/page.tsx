@@ -1,66 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Zap, Users, HeartHandshake, Wallet, ArrowUpRight, ChevronDown } from "lucide-react";
 import Counter from "@/components/Counter";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import ServiceCards from "@/components/ServiceCards";
 import ContactSection from "@/components/ContactSection";
-
-const clients = [
-  { src: "/images/client-asl.png", alt: "ASL" },
-  { src: "/images/client-amtan.png", alt: "Amtan" },
-  { src: "/images/client-drtanya.png", alt: "Dr. Tanya" },
-  { src: "/images/client-strongtower.png", alt: "Strong Tower" },
-  { src: "/images/client-wole-akosile.png", alt: "Wole Akosile Author" },
-];
+import ImagePlaceholder from "@/components/ImagePlaceholder";
+import Marquee from "@/components/Marquee";
+import Reveal from "@/components/motion/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 const whyUs = [
   {
     title: "Agile and Lean",
     description: "Faster turnaround, less wasted cost.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M13 10V3L4 14h7v7l9-11h-7z"
-      />
-    ),
+    Icon: Zap,
   },
   {
     title: "User-First Design",
     description: "Strong focus on usability, not just features.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-      />
-    ),
+    Icon: Users,
   },
   {
     title: "Ongoing Partnership",
     description: "Post-launch support and scalability.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-      />
-    ),
+    Icon: HeartHandshake,
   },
   {
     title: "Startup-Friendly Pricing",
     description: "Flexible models, revenue share, maintenance plans",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    ),
+    Icon: Wallet,
   },
 ];
 
@@ -87,222 +55,264 @@ const blogTeasers = [
   },
 ];
 
+function SectionHeading({
+  eyebrow,
+  title,
+  dark = false,
+}: {
+  eyebrow: string;
+  title: string;
+  dark?: boolean;
+}) {
+  return (
+    <Reveal>
+      <p
+        className={`flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] ${
+          dark ? "text-sky-light" : "text-blue-mid"
+        }`}
+      >
+        <span className={`h-px w-10 ${dark ? "bg-sky-light/60" : "bg-blue-mid/50"}`} />
+        {eyebrow}
+      </p>
+      <h2
+        className={`mt-5 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl ${
+          dark ? "text-white" : "text-navy"
+        }`}
+      >
+        {title}
+      </h2>
+    </Reveal>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      {/* Hero — deep navy, the brand's recommended logo background */}
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2 fade-up">
-            <div>
-              <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
-                We help <em className="text-sky-light">startups</em> turn ideas
-                into scalable{" "}
-                <em className="text-sky-light">digital products</em>
-              </h1>
-              <p className="mt-6 max-w-xl text-lg font-medium text-white/80">
-                From MVPs to full-scale apps, Mediawind is your partner in
-                building purposeful, user-friendly, and reliable digital
-                products.
-              </p>
+      {/* ——— Hero ——— */}
+      <section className="aurora grain relative flex min-h-svh flex-col text-white">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 pb-16 pt-40 sm:px-8">
+          <Reveal y={0}>
+            <p className="flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-sky-light">
+              <span className="h-px w-10 bg-sky-light/60" />
+              Digital Product Studio — Australia
+            </p>
+          </Reveal>
+          <SplitWords
+            delay={0.15}
+            segments={[
+              { text: "We help" },
+              { text: "startups", accent: true },
+              { text: "turn ideas into scalable" },
+              { text: "digital products", accent: true },
+            ]}
+            className="mt-7 max-w-5xl font-display text-[2.6rem] font-bold leading-[1.02] sm:text-7xl lg:text-[5.25rem]"
+          />
+          <Reveal delay={0.6}>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
+              From MVPs to full-scale apps, Mediawind is your partner in
+              building purposeful, user-friendly, and reliable digital
+              products.
+            </p>
+          </Reveal>
+          <Reveal delay={0.75}>
+            <div className="mt-10 flex flex-wrap items-center gap-5">
               <Link
                 href="/services"
-                className="mt-10 inline-block rounded-full bg-sky-light px-8 py-4 text-lg font-semibold text-navy hover:bg-white transition-colors"
+                className="group inline-flex items-center gap-2 rounded-full bg-sky-light px-8 py-4 text-lg font-semibold text-navy transition-transform duration-300 hover:scale-[1.04] active:scale-[0.98]"
               >
                 Discover What We Do
+                <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
-
-              <div className="mt-14 grid max-w-md grid-cols-2 gap-8">
-                <div>
-                  <p className="text-4xl font-bold text-sky-light sm:text-5xl">
-                    <Counter to={5} />
-                  </p>
-                  <p className="mt-2 font-medium text-white/80">
-                    Products Launched
-                  </p>
-                </div>
-                <div>
-                  <p className="text-4xl font-bold text-sky-light sm:text-5xl">
-                    <Counter to={6} suffix="+yrs" />
-                  </p>
-                  <p className="mt-2 font-medium text-white/80">
-                    Doing Business In Australia
-                  </p>
-                </div>
+              <Link
+                href="/contact"
+                className="link-sweep text-lg font-medium text-white/85"
+              >
+                Start a project
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.9}>
+            <div className="mt-16 flex gap-14">
+              <div>
+                <p className="font-display text-5xl font-bold text-sky-light sm:text-6xl">
+                  <Counter to={5} />
+                </p>
+                <p className="mt-2 text-white/70">Products Launched</p>
+              </div>
+              <div>
+                <p className="font-display text-5xl font-bold text-sky-light sm:text-6xl">
+                  <Counter to={6} suffix="+yrs" />
+                </p>
+                <p className="mt-2 text-white/70">Doing Business In Australia</p>
               </div>
             </div>
+          </Reveal>
+        </div>
 
-            <ImagePlaceholder
-              label="Founder & client at ease with technology — happy, enthusiastic, business setting, with a hint of the brand blues in the environment"
-              aspect="aspect-[4/3]"
-              className="bg-white/95"
-            />
-          </div>
+        {/* Clients marquee */}
+        <div className="relative border-t border-sky-light/15 py-8">
+          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">
+            Startups we&apos;ve worked with
+          </p>
+          <Marquee />
+          <ChevronDown
+            className="absolute -top-14 right-8 hidden h-6 w-6 animate-bounce text-sky-light/70 lg:block"
+            aria-hidden
+          />
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="mx-auto max-w-3xl text-center text-3xl font-bold text-navy sm:text-4xl">
-            We have delivered digital products to meet business expectations.
-          </h2>
-          <div className="mt-12">
+      {/* ——— Services ——— */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <SectionHeading
+            eyebrow="What we do"
+            title="We have delivered digital products to meet business expectations."
+          />
+          <div className="mt-14">
             <ServiceCards />
           </div>
         </div>
       </section>
 
-      {/* Clients */}
-      <section className="bg-navy py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-white sm:text-3xl">
-            Startups we&apos;ve worked with
-          </h2>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-14 gap-y-8">
-            {clients.map((c) => (
-              <Image
-                key={c.alt}
-                src={c.src}
-                alt={c.alt}
-                width={140}
-                height={56}
-                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case study */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
-            Case Study
-          </h2>
-          <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-            <Image
-              src="/images/case-study-bawo.webp"
-              alt="Bawo Africa home page"
-              width={1024}
-              height={578}
-              className="w-full rounded-2xl shadow-lg"
-            />
-            <div>
-              <h3 className="text-2xl font-bold text-navy sm:text-3xl">
-                Bawo Africa
-              </h3>
-              <p className="mt-4 text-lg text-black/65">
-                A platform dedicated to teach all African Languages in
-                bite-sized learning format. The platform ensures users attain
-                culture appreciation.
-              </p>
-              <Link
-                href="/contact"
-                className="mt-8 inline-block rounded-full bg-indigo-brand px-7 py-3 font-medium text-white hover:bg-blue-mid transition-colors"
-              >
-                Learn More
-              </Link>
+      {/* ——— Case study ——— */}
+      <section className="wave-bg">
+        <div className="wave-veil py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionHeading eyebrow="Case study" title="Bawo Africa" />
+            <div className="mt-14 grid items-center gap-14 lg:grid-cols-2">
+              <Reveal>
+                <div className="group overflow-hidden rounded-3xl shadow-[0_32px_80px_-24px_rgba(3,23,80,0.4)]">
+                  <Image
+                    src="/images/case-study-bawo.webp"
+                    alt="Bawo Africa home page"
+                    width={1024}
+                    height={578}
+                    className="w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                </div>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <p className="text-xl leading-relaxed text-ink/70 sm:text-2xl">
+                  A platform dedicated to teach all African Languages in
+                  bite-sized learning format. The platform ensures users attain
+                  culture appreciation.
+                </p>
+                <Link
+                  href="/contact"
+                  className="group mt-10 inline-flex items-center gap-2 font-display text-lg font-bold text-navy"
+                >
+                  <span className="link-sweep">Learn More</span>
+                  <ArrowUpRight className="h-5 w-5 text-blue-mid transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </Link>
+              </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Mediawind */}
-      <section className="bg-pale/60 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
-            Why Mediawind
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {whyUs.map((w) => (
-              <div
-                key={w.title}
-                className="rounded-2xl bg-white p-8 text-center shadow-sm"
-              >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-sky-light/40 text-navy">
-                  <svg
-                    className="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    {w.icon}
-                  </svg>
-                </div>
-                <h3 className="mt-6 text-lg font-semibold text-navy">
-                  {w.title}
-                </h3>
-                <p className="mt-3 text-black/65">{w.description}</p>
+      {/* ——— Why Mediawind ——— */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
+            <Reveal>
+              <ImagePlaceholder
+                label="Founder & client at ease with technology — happy, enthusiastic, business setting, with a hint of the brand blues in the environment"
+                aspect="aspect-[4/5]"
+                className="lg:sticky lg:top-28"
+              />
+            </Reveal>
+            <div>
+              <SectionHeading eyebrow="Why Mediawind" title="A partner, not a vendor." />
+              <div className="mt-12 space-y-4">
+                {whyUs.map((w, i) => (
+                  <Reveal key={w.title} delay={i * 0.08}>
+                    <div className="group flex items-start gap-5 rounded-3xl border border-ink/8 p-6 transition-all duration-500 hover:border-blue-mid/30 hover:bg-pale/50">
+                      <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-navy p-3.5 text-sky-light transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                        <w.Icon className="h-6 w-6" />
+                      </span>
+                      <span>
+                        <span className="block font-display text-xl font-bold text-navy">
+                          {w.title}
+                        </span>
+                        <span className="mt-1 block text-ink/65">
+                          {w.description}
+                        </span>
+                      </span>
+                    </div>
+                  </Reveal>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5-Step Approach */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
-            Our 5-Step Approach
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      {/* ——— 5-Step Approach ——— */}
+      <section className="aurora grain relative py-24 text-white sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <SectionHeading eyebrow="How we work" title="Our 5-Step Approach" dark />
+          <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, i) => (
-              <div
-                key={step}
-                className="rounded-2xl border border-pale bg-white p-6 text-center shadow-sm"
-              >
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-navy text-lg font-bold text-white">
-                  {i + 1}
+              <Reveal key={step} delay={i * 0.1}>
+                <div className="relative">
+                  <p className="font-display text-6xl font-bold text-sky-light/25">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <span className="mt-4 block h-px w-full bg-gradient-to-r from-sky-light/60 to-transparent" />
+                  <h3 className="mt-4 font-display text-lg font-bold">
+                    {step}
+                  </h3>
                 </div>
-                <h3 className="mt-4 font-semibold text-navy">{step}</h3>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <ContactSection />
-
-      {/* Blog teaser */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
-            Startup Journey Insights
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-black/65">
-            Follow our blog for expert insights on digital product development,
-            startup strategies, and industry trends that matter to ambitious
-            founders.
-          </p>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {blogTeasers.map((b) => (
+      {/* ——— Blog teaser ——— */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Insights" title="Startup Journey Insights" />
+            <Reveal delay={0.15}>
               <Link
-                key={b.title}
                 href="/blog"
-                className="group overflow-hidden rounded-2xl border border-pale bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group inline-flex items-center gap-2 font-display text-lg font-bold text-navy"
               >
-                <Image
-                  src={b.image}
-                  alt={b.title}
-                  width={768}
-                  height={543}
-                  className="aspect-[3/2] w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-navy group-hover:text-blue-mid transition-colors">
+                <span className="link-sweep">All articles</span>
+                <ArrowUpRight className="h-5 w-5 text-blue-mid transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </Link>
+            </Reveal>
+          </div>
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {blogTeasers.map((b, i) => (
+              <Reveal key={b.title} delay={i * 0.1}>
+                <Link href="/blog" className="group block">
+                  <div className="overflow-hidden rounded-3xl">
+                    <Image
+                      src={b.image}
+                      alt={b.title}
+                      width={768}
+                      height={543}
+                      className="aspect-[3/2] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                    />
+                  </div>
+                  <h3 className="mt-5 font-display text-xl font-bold text-navy transition-colors duration-300 group-hover:text-blue-mid">
                     {b.title}
                   </h3>
-                  <p className="mt-2 text-black/65">
+                  <p className="mt-2 text-ink/60">
                     Building your first product might seem daunting.
                   </p>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ——— Contact ——— */}
+      <ContactSection />
     </>
   );
 }
