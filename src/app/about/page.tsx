@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "About",
@@ -44,11 +43,15 @@ export default function AboutPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ImagePlaceholder
-            label="The Mediawind team collaborating — cheerful, at ease with technology, business environment with a hint of the brand blues"
-            aspect="aspect-[21/9]"
-            className="mb-16"
-          />
+          <div className="mb-16 overflow-hidden rounded-3xl shadow-[0_32px_80px_-24px_rgba(3,23,80,0.35)]">
+            <Image
+              src="/images/photo-team.webp"
+              alt="The Mediawind team sharing a laugh while collaborating in the studio"
+              width={2000}
+              height={1125}
+              className="aspect-[21/9] w-full object-cover"
+            />
+          </div>
           <div className="grid gap-12 lg:grid-cols-2">
             <div className="rounded-2xl bg-pale/60 p-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-blue-mid">

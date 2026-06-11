@@ -11,18 +11,18 @@ const clients = [
 export default function Marquee() {
   const row = [...clients, ...clients, ...clients];
   return (
-    <div className="relative overflow-hidden py-3">
-      <div className="marquee items-center gap-24 pr-24">
+    <div className="relative overflow-hidden py-4">
+      <div className="marquee items-center gap-28 pr-28">
         {[0, 1].map((half) => (
-          <div key={half} className="flex items-center gap-24" aria-hidden={half === 1}>
+          <div key={half} className="flex items-center gap-28" aria-hidden={half === 1}>
             {row.map((c, i) => (
               <Image
                 key={`${half}-${i}`}
                 src={c.src}
                 alt={half === 0 ? c.alt : ""}
-                width={200}
-                height={80}
-                style={{ height: "4rem", width: "auto" }}
+                width={280}
+                height={112}
+                style={{ height: "6rem", width: "auto" }}
                 className="object-contain opacity-80 brightness-0 invert transition-opacity hover:opacity-100"
               />
             ))}
