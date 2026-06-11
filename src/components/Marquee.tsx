@@ -22,8 +22,8 @@ export default function Marquee() {
                 alt={half === 0 ? c.alt : ""}
                 width={200}
                 height={80}
-                style={{ width: "auto" }}
-                className="h-16 w-auto object-contain opacity-80 brightness-0 invert transition-opacity hover:opacity-100 sm:h-20"
+                style={{ height: "4rem", width: "auto" }}
+                className="object-contain opacity-80 brightness-0 invert transition-opacity hover:opacity-100"
               />
             ))}
           </div>

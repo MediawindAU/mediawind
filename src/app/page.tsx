@@ -96,7 +96,10 @@ export default function Home() {
   return (
     <>
       {/* ——— Hero ——— */}
-      <PointerGlowArea className="aurora grain relative flex min-h-svh flex-col text-white">
+      <PointerGlowArea
+        pattern
+        className="aurora grain relative flex min-h-svh flex-col text-white"
+      >
         <HeroParallax className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 pb-16 pt-40 sm:px-8">
           <Reveal y={0}>
             <p className="flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-sky-light">

@@ -5,9 +5,21 @@
  * Each icon carries a small hover choreography via group-hover transforms.
  */
 
-const main = "text-navy transition-colors duration-500 group-hover:text-white";
-const accent =
-  "text-blue-mid transition-colors duration-500 group-hover:text-sky-light";
+export type IconTone = "light" | "dark";
+
+const tones: Record<IconTone, { main: string; accent: string }> = {
+  /* on light surfaces — flips white when the row floods navy */
+  light: {
+    main: "text-navy transition-colors duration-500 group-hover:text-white",
+    accent:
+      "text-blue-mid transition-colors duration-500 group-hover:text-sky-light",
+  },
+  /* on dark surfaces (e.g. the services dropdown) */
+  dark: {
+    main: "text-white transition-colors duration-500",
+    accent: "text-sky-light transition-colors duration-500",
+  },
+};
 
 const stroke = {
   fill: "none",
@@ -17,7 +29,10 @@ const stroke = {
   stroke: "currentColor",
 };
 
-export function AppDevIcon({ className = "h-14 w-14" }: { className?: string }) {
+type IconProps = { className?: string; tone?: IconTone };
+
+export function AppDevIcon({ className = "h-14 w-14", tone = "light" }: IconProps) {
+  const { main, accent } = tones[tone];
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
       {/* phone */}
@@ -35,7 +50,8 @@ export function AppDevIcon({ className = "h-14 w-14" }: { className?: string }) 
   );
 }
 
-export function SaasEcomIcon({ className = "h-14 w-14" }: { className?: string }) {
+export function SaasEcomIcon({ className = "h-14 w-14", tone = "light" }: IconProps) {
+  const { main, accent } = tones[tone];
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
       {/* cloud */}
@@ -58,7 +74,27 @@ export function SaasEcomIcon({ className = "h-14 w-14" }: { className?: string }
   );
 }
 
-export function CloudBackendIcon({ className = "h-14 w-14" }: { className?: string }) {
+export function WebDevIcon({ className = "h-14 w-14", tone = "light" }: IconProps) {
+  const { main, accent } = tones[tone];
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      {/* browser window */}
+      <g className={main}>
+        <rect x="7" y="9" width="34" height="30" rx="4" {...stroke} />
+        <path d="M7 17h34" {...stroke} strokeWidth={2.2} />
+        <path d="M12 13h.01M17 13h.01" {...stroke} strokeWidth={3.2} />
+      </g>
+      {/* wave strokes flowing through the viewport — drift on hover */}
+      <g className={`${accent} transition-transform duration-500 ease-out group-hover:translate-x-1`}>
+        <path d="M12 33c5-7 11-10 24-11" {...stroke} strokeWidth={2.4} />
+        <path d="M16 35.5c4.5-5 9.5-7.5 20-8.5" {...stroke} strokeWidth={2.2} />
+      </g>
+    </svg>
+  );
+}
+
+export function CloudBackendIcon({ className = "h-14 w-14", tone = "light" }: IconProps) {
+  const { main, accent } = tones[tone];
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
       {/* cloud */}
@@ -86,7 +122,8 @@ export function CloudBackendIcon({ className = "h-14 w-14" }: { className?: stri
   );
 }
 
-export function UserCenteredIcon({ className = "h-14 w-14" }: { className?: string }) {
+export function UserCenteredIcon({ className = "h-14 w-14", tone = "light" }: IconProps) {
+  const { main, accent } = tones[tone];
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden>
       {/* focus reticle — breathes outward on hover */}
