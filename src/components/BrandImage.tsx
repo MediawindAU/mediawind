@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 
@@ -28,6 +29,7 @@ export default function BrandImage({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const gradientId = useId();
 
   return (
     <div
@@ -53,15 +55,33 @@ export default function BrandImage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-navy/55 via-indigo-brand/20 to-sky-light/15 mix-blend-multiply transition-opacity duration-700 group-hover:opacity-70"
         />
       )}
-      {/* sky hairline that traces in as the image settles */}
-      <motion.span
+      {/* sky hairline that traces around the full frame as the image settles */}
+      <svg
         aria-hidden
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-sky-light to-blue-mid"
-        initial={reduce ? { width: "100%" } : { width: 0 }}
-        whileInView={{ width: "100%" }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      />
+        className="pointer-events-none absolute inset-0 h-full w-full"
+      >
+        <defs>
+          <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#98cbf1" />
+            <stop offset="55%" stopColor="#5488c7" />
+            <stop offset="100%" stopColor="#98cbf1" />
+          </linearGradient>
+        </defs>
+        <motion.rect
+          x="1.5"
+          y="1.5"
+          width="calc(100% - 3px)"
+          height="calc(100% - 3px)"
+          rx="22.5"
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="3"
+          initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 1.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </svg>
     </div>
   );
 }
