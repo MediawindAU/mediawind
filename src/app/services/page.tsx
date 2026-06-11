@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ServiceCards from "@/components/ServiceCards";
 import FeatureGrid from "@/components/FeatureGrid";
-import Image from "next/image";
 import TechStackCTA from "@/components/TechStackCTA";
+import BrandImage from "@/components/BrandImage";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -57,15 +57,15 @@ export default function ServicesPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 overflow-hidden rounded-3xl shadow-[0_32px_80px_-24px_rgba(3,23,80,0.35)]">
-            <Image
-              src="/images/photo-workshop.webp"
-              alt="The Mediawind team sketching product flows on a whiteboard during a client workshop"
-              width={2000}
-              height={1125}
-              className="aspect-[21/9] w-full object-cover"
-            />
-          </div>
+          <BrandImage
+            src="/images/photo-workshop.webp"
+            alt="The Mediawind team sketching product flows on a whiteboard during a client workshop"
+            width={2000}
+            height={1125}
+            aspect="aspect-[21/9]"
+            overlay
+            className="mb-16"
+          />
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             How we help
           </h2>

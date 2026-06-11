@@ -6,7 +6,13 @@ import { ArrowRight } from "lucide-react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export default function ContactSection({ id = "contact" }: { id?: string }) {
+export default function ContactSection({
+  id = "contact",
+  showHeading = true,
+}: {
+  id?: string;
+  showHeading?: boolean;
+}) {
   const [status, setStatus] = useState<Status>("idle");
   const reduce = useReducedMotion();
 
@@ -43,20 +49,28 @@ export default function ContactSection({ id = "contact" }: { id?: string }) {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="flex items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-blue-mid">
-              <span className="h-px w-10 bg-blue-mid/50" />
-              Contact
-              <span className="h-px w-10 bg-blue-mid/50" />
-            </p>
-            <h2 className="mt-5 text-center font-display text-3xl font-bold text-navy sm:text-5xl">
-              Kickstart your project
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-center leading-relaxed text-ink/65">
-              Fill out the form below and we&apos;ll contact you as soon as
-              possible to discuss how we can bring your digital vision to life.
-            </p>
+            {showHeading && (
+              <>
+                <p className="flex items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-blue-mid">
+                  <span className="h-px w-10 bg-blue-mid/50" />
+                  Contact
+                  <span className="h-px w-10 bg-blue-mid/50" />
+                </p>
+                <h2 className="mt-5 text-center font-display text-3xl font-bold text-navy sm:text-5xl">
+                  Kickstart your project
+                </h2>
+                <p className="mx-auto mt-5 max-w-xl text-center leading-relaxed text-ink/65">
+                  Fill out the form below and we&apos;ll contact you as soon as
+                  possible to discuss how we can bring your digital vision to
+                  life.
+                </p>
+              </>
+            )}
 
-            <form className="mt-12 space-y-6" onSubmit={handleSubmit}>
+            <form
+              className={`${showHeading ? "mt-12" : ""} space-y-6`}
+              onSubmit={handleSubmit}
+            >
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="block">
                   <span className={labelClass}>

@@ -5,6 +5,7 @@ import Counter from "@/components/Counter";
 import ServiceCards from "@/components/ServiceCards";
 import ContactSection from "@/components/ContactSection";
 import Marquee from "@/components/Marquee";
+import BrandImage from "@/components/BrandImage";
 import Reveal from "@/components/motion/Reveal";
 import SplitWords from "@/components/motion/SplitWords";
 import Magnetic from "@/components/motion/Magnetic";
@@ -225,18 +226,15 @@ export default function Home() {
       {/* ——— Why Mediawind ——— */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="grid gap-14 lg:grid-cols-2 lg:items-center">
-            <Reveal>
-              <div className="overflow-hidden rounded-3xl shadow-[0_32px_80px_-24px_rgba(3,23,80,0.35)] lg:sticky lg:top-28">
-                <Image
-                  src="/images/photo-founder-client.webp"
-                  alt="Mediawind founder walking a happy client through a product on a laptop"
-                  width={1400}
-                  height={1750}
-                  className="aspect-[4/5] w-full object-cover"
-                />
-              </div>
-            </Reveal>
+          <div className="grid gap-14 lg:grid-cols-[5fr_7fr] lg:items-start">
+            <BrandImage
+              src="/images/photo-founder-client.webp"
+              alt="Mediawind founder walking a happy client through a product on a laptop"
+              width={1400}
+              height={1750}
+              aspect="aspect-[4/5]"
+              className="mx-auto w-full max-w-md lg:sticky lg:top-28 lg:max-w-none"
+            />
             <div>
               <SectionHeading eyebrow="Why Mediawind" title="A partner, not a vendor." />
               <div className="mt-12 space-y-4">
