@@ -1,32 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import {
+  AppDevIcon,
+  SaasEcomIcon,
+  CloudBackendIcon,
+  UserCenteredIcon,
+} from "@/components/ServiceIcons";
 
 const services = [
   {
     href: "/app-development",
-    image: "/images/service-app-dev.webp",
+    Icon: AppDevIcon,
     title: "App Development (Web + Mobile)",
     blurb: "Native-feel products for every screen, from MVP to scale.",
   },
   {
     href: "/app-development",
-    image: "/images/service-saas.webp",
+    Icon: SaasEcomIcon,
     title: "SaaS & E-Commerce Solutions",
     blurb: "Subscription-ready platforms and stores built to convert.",
   },
   {
     href: "/backend-development",
-    image: "/images/service-cloud.webp",
+    Icon: CloudBackendIcon,
     title: "Cloud & Backend Systems",
     blurb: "The invisible infrastructure that keeps everything fast.",
   },
   {
     href: "/branding",
-    image: "/images/service-design.webp",
+    Icon: UserCenteredIcon,
     title: "User Centered Design Approach",
     blurb: "Identity and interfaces shaped around real people.",
   },
@@ -53,13 +58,9 @@ export default function ServiceCards() {
             <span className="relative font-display text-sm font-semibold text-blue-mid transition-colors duration-300 group-hover:text-sky-light sm:text-base">
               0{i + 1}
             </span>
-            <Image
-              src={s.image}
-              alt=""
-              width={64}
-              height={64}
-              className="relative h-12 w-12 object-contain transition-all duration-500 group-hover:brightness-0 group-hover:invert sm:h-16 sm:w-16"
-            />
+            <span className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-pale/80 transition-colors duration-500 group-hover:bg-white/10 sm:h-20 sm:w-20">
+              <s.Icon className="h-10 w-10 sm:h-12 sm:w-12" />
+            </span>
             <span className="relative flex-1">
               <span className="block font-display text-xl font-bold text-navy transition-colors duration-300 group-hover:text-white sm:text-3xl">
                 {s.title}

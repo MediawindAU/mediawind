@@ -30,7 +30,8 @@ export default function ContactSection({ id = "contact" }: { id?: string }) {
   }
 
   const inputClass =
-    "w-full rounded-2xl border border-ink/10 bg-pale/60 px-5 py-4 text-ink placeholder-ink/40 transition-all duration-300 focus:border-blue-mid focus:bg-white focus:outline-none focus:ring-4 focus:ring-sky-light/30";
+    "mt-2 w-full rounded-2xl border border-ink/10 bg-pale/60 px-5 py-4 text-ink placeholder-ink/35 transition-all duration-300 focus:border-blue-mid focus:bg-white focus:outline-none focus:ring-4 focus:ring-sky-light/30";
+  const labelClass = "text-sm font-semibold text-navy";
 
   return (
     <section id={id} className="wave-bg">
@@ -55,42 +56,61 @@ export default function ContactSection({ id = "contact" }: { id?: string }) {
               possible to discuss how we can bring your digital vision to life.
             </p>
 
-            <form className="mt-12 space-y-5" onSubmit={handleSubmit}>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Email"
-                  className={inputClass}
-                />
-                <input
-                  type="text"
-                  name="company"
-                  placeholder="Company"
-                  className={inputClass}
-                />
+            <form className="mt-12 space-y-6" onSubmit={handleSubmit}>
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="block">
+                  <span className={labelClass}>
+                    Email <span className="text-blue-mid">*</span>
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    className={inputClass}
+                  />
+                </label>
+                <label className="block">
+                  <span className={labelClass}>Company</span>
+                  <input
+                    type="text"
+                    name="company"
+                    autoComplete="organization"
+                    placeholder="Your startup or business"
+                    className={inputClass}
+                  />
+                </label>
               </div>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <input
-                  type="text"
-                  name="projectDescription"
-                  placeholder="Project Description"
-                  className={inputClass}
-                />
-                <input
-                  type="text"
-                  name="projectTimeline"
-                  placeholder="Project Timeline"
-                  className={inputClass}
-                />
+              <div className="grid gap-6 sm:grid-cols-2">
+                <label className="block">
+                  <span className={labelClass}>Project Description</span>
+                  <input
+                    type="text"
+                    name="projectDescription"
+                    placeholder="e.g. Mobile app MVP"
+                    className={inputClass}
+                  />
+                </label>
+                <label className="block">
+                  <span className={labelClass}>Project Timeline</span>
+                  <input
+                    type="text"
+                    name="projectTimeline"
+                    placeholder="e.g. 3–6 months"
+                    className={inputClass}
+                  />
+                </label>
               </div>
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Message"
-                className={inputClass}
-              />
+              <label className="block">
+                <span className={labelClass}>Message</span>
+                <textarea
+                  name="message"
+                  rows={5}
+                  placeholder="Tell us about your idea…"
+                  className={inputClass}
+                />
+              </label>
               <div className="pt-2 text-center">
                 <button
                   type="submit"

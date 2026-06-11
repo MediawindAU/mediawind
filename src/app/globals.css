@@ -46,6 +46,14 @@ em {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+/* Visible, consistent keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-blue-mid);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* ——— Brand wave pattern (light sections) ——— */
@@ -127,6 +135,17 @@ html {
 @keyframes marquee {
   to {
     transform: translateX(-50%);
+  }
+}
+
+/* ——— Icon data-flow pulse (service icons) ——— */
+.group:hover .icon-flow {
+  animation: icon-flow 0.9s linear infinite;
+}
+
+@keyframes icon-flow {
+  to {
+    stroke-dashoffset: -13;
   }
 }
 

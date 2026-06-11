@@ -8,6 +8,9 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/motion/Reveal";
 import SplitWords from "@/components/motion/SplitWords";
+import Magnetic from "@/components/motion/Magnetic";
+import HeroParallax from "@/components/motion/HeroParallax";
+import PointerGlowArea from "@/components/motion/PointerGlow";
 
 const whyUs = [
   {
@@ -65,23 +68,27 @@ function SectionHeading({
   dark?: boolean;
 }) {
   return (
-    <Reveal>
-      <p
-        className={`flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] ${
-          dark ? "text-sky-light" : "text-blue-mid"
-        }`}
-      >
-        <span className={`h-px w-10 ${dark ? "bg-sky-light/60" : "bg-blue-mid/50"}`} />
-        {eyebrow}
-      </p>
-      <h2
+    <div>
+      <Reveal>
+        <p
+          className={`flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] ${
+            dark ? "text-sky-light" : "text-blue-mid"
+          }`}
+        >
+          <span className={`h-px w-10 ${dark ? "bg-sky-light/60" : "bg-blue-mid/50"}`} />
+          {eyebrow}
+        </p>
+      </Reveal>
+      <SplitWords
+        as="h2"
+        inView
+        delay={0.1}
+        segments={[{ text: title }]}
         className={`mt-5 max-w-3xl font-display text-3xl font-bold leading-tight sm:text-5xl ${
           dark ? "text-white" : "text-navy"
         }`}
-      >
-        {title}
-      </h2>
-    </Reveal>
+      />
+    </div>
   );
 }
 
@@ -89,8 +96,8 @@ export default function Home() {
   return (
     <>
       {/* ——— Hero ——— */}
-      <section className="aurora grain relative flex min-h-svh flex-col text-white">
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 pb-16 pt-40 sm:px-8">
+      <PointerGlowArea className="aurora grain relative flex min-h-svh flex-col text-white">
+        <HeroParallax className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 pb-16 pt-40 sm:px-8">
           <Reveal y={0}>
             <p className="flex items-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-sky-light">
               <span className="h-px w-10 bg-sky-light/60" />
@@ -116,13 +123,15 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.75}>
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              <Link
-                href="/services"
-                className="group inline-flex items-center gap-2 rounded-full bg-sky-light px-8 py-4 text-lg font-semibold text-navy transition-transform duration-300 hover:scale-[1.04] active:scale-[0.98]"
-              >
-                Discover What We Do
-                <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+              <Magnetic>
+                <Link
+                  href="/services"
+                  className="group inline-flex items-center gap-2 rounded-full bg-sky-light px-8 py-4 text-lg font-semibold text-navy transition-transform duration-300 hover:scale-[1.04] active:scale-[0.98]"
+                >
+                  Discover What We Do
+                  <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              </Magnetic>
               <Link
                 href="/contact"
                 className="link-sweep text-lg font-medium text-white/85"
@@ -147,11 +156,11 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-        </div>
+        </HeroParallax>
 
         {/* Clients marquee */}
-        <div className="relative border-t border-sky-light/15 py-8">
-          <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/50">
+        <div className="relative z-10 border-t border-sky-light/15 py-10">
+          <p className="mb-7 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white/55">
             Startups we&apos;ve worked with
           </p>
           <Marquee />
@@ -160,7 +169,7 @@ export default function Home() {
             aria-hidden
           />
         </div>
-      </section>
+      </PointerGlowArea>
 
       {/* ——— Services ——— */}
       <section className="py-24 sm:py-32">
