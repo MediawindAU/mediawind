@@ -30,8 +30,8 @@ export default function PointerGlowArea({
   const y = useSpring(my, { stiffness: 55, damping: 17 });
   const reduce = useReducedMotion();
 
-  const glow = useMotionTemplate`radial-gradient(720px circle at ${x}px ${y}px, rgba(152, 203, 241, 0.16), rgba(152, 203, 241, 0.05) 45%, transparent 72%)`;
-  const patternMask = useMotionTemplate`radial-gradient(640px circle at ${x}px ${y}px, black 0%, rgba(0,0,0,0.45) 45%, transparent 74%)`;
+  const glow = useMotionTemplate`radial-gradient(580px circle at ${x}px ${y}px, rgba(152, 203, 241, 0.16), rgba(152, 203, 241, 0.05) 45%, transparent 72%)`;
+  const patternMask = useMotionTemplate`radial-gradient(520px circle at ${x}px ${y}px, black 0%, rgba(0,0,0,0.45) 45%, transparent 74%)`;
 
   return (
     <div
@@ -48,7 +48,7 @@ export default function PointerGlowArea({
           {pattern && (
             <motion.div
               aria-hidden
-              className="pointer-events-none absolute inset-0 z-0 opacity-[0.13]"
+              className="pointer-events-none absolute inset-0 z-0 opacity-10"
               style={{
                 backgroundImage: "url(/images/pattern-wave.png)",
                 backgroundSize: "340px",
