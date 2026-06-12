@@ -34,7 +34,19 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="Passionate Techies">
+      <PageHero
+        title="Passionate Techies"
+        aside={
+          <BrandImage
+            src="/images/photo-team.webp"
+            alt="The Mediawind team sharing a laugh while collaborating in the studio"
+            width={2000}
+            height={1125}
+            aspect="aspect-[4/3]"
+            position="object-[center_22%]"
+          />
+        }
+      >
         <p>
           We&apos;re Digital Storytellers and Problem Solvers. At Mediawind, we
           believe every great product starts with a great story. We&apos;re
@@ -44,15 +56,6 @@ export default function AboutPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <BrandImage
-            src="/images/photo-team.webp"
-            alt="The Mediawind team sharing a laugh while collaborating in the studio"
-            width={2000}
-            height={1125}
-            aspect="aspect-[2/1]"
-            position="object-[center_22%]"
-            className="mb-16"
-          />
           <div className="grid gap-12 lg:grid-cols-2">
             <div className="rounded-2xl bg-pale/60 p-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-blue-mid">

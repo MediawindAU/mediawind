@@ -47,7 +47,19 @@ const howWeHelp = [
 export default function ServicesPage() {
   return (
     <>
-      <PageHero title="Let's cover all aspects of your product development">
+      <PageHero
+        title="Let's cover all aspects of your product development"
+        aside={
+          <BrandImage
+            src="/images/photo-workshop.webp"
+            alt="The Mediawind team sketching product flows on a whiteboard during a client workshop"
+            width={2000}
+            height={1125}
+            aspect="aspect-[4/3]"
+            overlay
+          />
+        }
+      >
         <p>
           Welcome to a new era of digital product development—less friction,
           fewer delays, zero complications, and no wasted time. Just results
@@ -57,15 +69,6 @@ export default function ServicesPage() {
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <BrandImage
-            src="/images/photo-workshop.webp"
-            alt="The Mediawind team sketching product flows on a whiteboard during a client workshop"
-            width={2000}
-            height={1125}
-            aspect="aspect-[21/9]"
-            overlay
-            className="mb-16"
-          />
           <h2 className="text-center text-3xl font-bold text-navy sm:text-4xl">
             How we help
           </h2>
